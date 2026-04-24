@@ -297,5 +297,6 @@ Coverage artifacts are generated under `coverage/` (including lcov/html reports)
 
 - The solution prioritizes correctness of leave balance transitions and secure approval controls.
 - Endpoints were designed to support both user-facing operations and HCM integration workflows.
+- This GitHub repository ([time-off-microservice](https://github.com/kaiquemsa/time-off-microservice)) also contains a frontend (`time-off-frontend`) created exclusively for this technical test, in case you want to review the UI visualization.
 - Additional engineering notes, trade-offs, and next steps are documented in:
   - [ENGINEERING_DECISIONS.md](/Users/kaiquesilva/Documents/project_hcm/time-off-service/docs/ENGINEERING_DECISIONS.md)
