@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Balance {
+  id              String   @id @default(cuid())
+  employeeId      String
+  locationId      String
+  availableBalance Float
+  reservedBalance  Float   @default(0)
+  usedBalance      Float   @default(0)
+  version          Int     @default(1)
+  lastSyncedAt     DateTime?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@unique([employeeId, locationId])
+}
+
+model TimeOffRequest {
+  id              String   @id @default(cuid())
+  employeeId      String
+  locationId      String
+  startDate       DateTime
+  endDate         DateTime
+  requestedDays   Float
+  status          String
+  syncStatus      String   @default("NOT_SYNCED")
+  rejectionReason String?
+  hcmReference    String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model User {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  passwordHash String
+  role         String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
